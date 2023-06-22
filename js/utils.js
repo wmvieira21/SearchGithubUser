@@ -15,8 +15,9 @@ export default function getUserData(username) {
 
 
 function drawCard(user) {
-    const cardSection = document.querySelector('.card-user-section');
+    const main = document.querySelector('main');
     const bodyCard = `
+    <section class="card-user-section">
     <div class="card-user__image">
     <figure>
         <img class="card-user__image--avatar" src="${user.avatar_url}"
@@ -44,7 +45,8 @@ function drawCard(user) {
                 <li><a href="">Repositorie 1</a></li>
             </ul>
         </div>
-    </div>`;
+    </div>
+    </section>`;
 
-    cardSection.innerHTML = bodyCard;
+    bodyCard.insertAdjacentElement('after', document.querySelector('.form-section'));
 }
