@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="git github user search">
+    <link rel="stylesheet" href="style.css">
+    <title>Search github user</title>
+</head>
+
+<body>
+    <main>
+        <section class="form-section">
+            <div class="form-container">
+                <form class="form">
+                    <input type="text" id="searchUser" placeholder="Search a GitHub user" maxlength="100" autofocus
+                        autocomplete="on" list="options">
+
+                    <datalist id="options">
+                        <option value="wmvieira21"></option>
+                    </datalist>
+                </form>
+            </div>
+        </section>
+
+        <section class="card-user-section">
+            <div class="card-user__image">
+                <figure>
+                    <img class="card-user__image--avatar" src="https://avatars.githubusercontent.com/u/90009567?v=4"
+                        alt="">
+                </figure>
+            </div>
+
+            <div class="card-user__info">
+                
+                <div class="card-user__info--user">
+                    <h2 class="card-user__info--username">wmvieira21</h2>
+                    <h4 class="card-user__info--bio">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate
+                        modi fugiat impedit deleniti
+                        consequuntur dolores alias sit id possimus numquam ipsa, quaerat, veniam unde voluptatem est non
+                        eius nostrum aliquam ratione eveniet aspernatur blanditiis? Minima exercitationem deserunt
+                        expedita consectetur? Laborum veritatis labor
+                    </h4>
+                </div>
+
+                <div class="card-user__info--details">
+                    <span class="card-user__info--followers">100 Followers</span>
+                    <span class="card-user__info--following">100 Following</span>
+                    <span class="card-user__info--repo">100 Repositories</span>
+                </div>
+
+                <div class="card-user__info--repo">
+                    <ul>
+                        <li><a href="">Repositorie 1</a></li>
+                        <li><a href="">Repositorie 1</a></li>
+                        <li><a href="">Repositorie 1</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="./js/script.js"></script>
+</body>
+
+</html>
