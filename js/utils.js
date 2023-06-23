@@ -1,21 +1,31 @@
 import User from "./user.js";
 
 export default function getUserData(username) {
-    const API_URL = 'https://api.github.com/users/';
-    axios.get(API_URL.concat(username))
+    const API_URL_USER = 'https://api.github.com/users/';
+    const API_URL_STARRED_REPO = `https://api.github.com/users/${username}/starred`;
+
+    const getUserData = axios.get(API_URL_USER.concat(username));
+    const getStarredRepo = axios.get(API_URL_STARRED_REPO);
+
+    Promise.all([getUserData, getStarredRepo])
         .then(response => {
-            const data = response.data;
-            const userGit = Reflect.construct(User, [data.login, data.name, data.bio, data.avatar_url, data.public_repos, data.followers, data.following]);
+            console.log(response);
+            const data = response[0].data;
+            const listStarredRepo = response[1].data;
+
+            const userGit = Reflect.construct(User, [data.login, data.name, data.bio, data.avatar_url, data.public_repos, data.followers, data.following, listStarredRepo]);
+
+            clearCards();
             drawCard(userGit);
         })
         .catch(error => {
+            clearCards();
+            showError(error);
             console.log(error);
         });
 }
 
-
 function drawCard(user) {
-    const main = document.querySelector('main');
     const bodyCard = `
     <section class="card-user-section">
     <div class="card-user__image">
@@ -48,5 +58,21 @@ function drawCard(user) {
     </div>
     </section>`;
 
-    bodyCard.insertAdjacentElement('after', document.querySelector('.form-section'));
+    document.querySelector('.form-section').insertAdjacentHTML('afterend', bodyCard);
+}
+
+function clearCards() {
+    const card = document.querySelector('.card-user-section');
+
+    if (card) {
+        document.querySelector('main').removeChild(card);
+    }
+}
+
+function showError(error) {
+    const errorMessageEl = document.querySelector('.error-section');
+    errorMessageEl.classList.add('show-error');
+    setTimeout(() => {
+        errorMessageEl.classList.remove('show-error');
+    }, 3000);
 }

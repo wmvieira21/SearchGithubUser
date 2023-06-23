@@ -1,4 +1,4 @@
-export default function User(login, name, bio, avatar_url, public_repos, followers, following) {
+export default function User(login, name, bio, avatar_url, public_repos, followers, following, strarredRepo) {
     this.login = login;
     this.name = name;
     this.bio = bio;
@@ -6,4 +6,5 @@ export default function User(login, name, bio, avatar_url, public_repos, followe
     this.public_repos = public_repos;
     this.followers = followers;
     this.following = following;
+    this.strarredRepo = strarredRepo;
 }

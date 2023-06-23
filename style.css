@@ -14,32 +14,26 @@ body {
     background-color: var(--body-backgroud);
 }
 
-main {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
-
 .form-section {
     width: 60%;
+    margin: 5rem auto;
 }
 
 .card-user-section {
     width: 60%;
+    height: 20rem;
+    margin: auto;
     background-color: #232f3e;
     color: white;
     border-radius: 10px;
     padding: 1rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    box-shadow: 0px 5px 10px 0px var(--card-backgroud);
 }
 
 .card-user__image>figure {
-    width: 9rem;
+    width: 11rem;
 }
 
 .form-section #searchUser {
@@ -48,9 +42,10 @@ main {
     border: none;
     padding: 1rem;
     border-radius: 10px;
-    color: whitesmoke;
+    color: white;
     outline: none;
     width: 100%;
+    box-shadow: 0px 5px 10px 0px var(--card-backgroud);
 }
 
 .form-section #searchUser::placeholder {
@@ -58,7 +53,7 @@ main {
 }
 
 .card-user__image .card-user__image--avatar {
-    width: 8rem;
+    width: 10rem;
     border-radius: 50%;
     border: 0.5rem solid var(--body-backgroud);
 }
@@ -68,6 +63,7 @@ main {
     flex-direction: column;
     gap: 1rem;
     align-items: flex-start;
+    width: 100%;
 }
 
 .card-user__info--repo li {
@@ -94,15 +90,21 @@ main {
     justify-content: space-between;
 }
 
-.error-container {
-    background-color: var(--card-backgroud);
-    color: rgb(255, 83, 83);
-    font-size: 1.5rem;
+.error-section {
+    background-color: white;
+    color: var(--card-backgroud);
+    font-size: 1rem;
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 5px 5px 20px 5px var(--card-backgroud);
     position: fixed;
     right: 1rem;
-    bottom: 1rem;
-    display: none;
+    bottom: -5rem;
+    opacity: 0;
+    transition: opacity 2s, bottom 300ms linear;
+}
+
+.error-section.show-error {
+    bottom: 3rem;
+    opacity: 1;
 }
