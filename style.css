@@ -21,24 +21,21 @@ body {
 
 .card-user-section {
     width: 60%;
-    height: 20rem;
     margin: auto;
-    background-color: #232f3e;
+    background-color: var(--card-backgroud);
     color: white;
     border-radius: 10px;
     padding: 1rem;
     display: flex;
     align-items: center;
     box-shadow: 0px 5px 10px 0px var(--card-backgroud);
+    overflow: hidden;
 }
 
-.card-user__image>figure {
-    width: 11rem;
-}
 
 .form-section #searchUser {
     font-size: 1rem;
-    background-color: #232f3e;
+    background-color: var(--card-backgroud);
     border: none;
     padding: 1rem;
     border-radius: 10px;
@@ -50,6 +47,10 @@ body {
 
 .form-section #searchUser::placeholder {
     color: rgba(245, 245, 245, 0.452);
+}
+
+.card-user__image>figure {
+    width: 11rem;
 }
 
 .card-user__image .card-user__image--avatar {
@@ -66,11 +67,29 @@ body {
     width: 100%;
 }
 
-.card-user__info--repo li {
-    display: inline-block;
+.card-user__repositories {
+    width: 100%;
 }
 
-.card-user__info--repo li a {
+.card-user__repositories fieldset {
+    padding: 0.5rem;
+    border-radius: 6px;
+    /* border-color: var(--card-backgroud); */
+    border: 1px solid rgba(245, 245, 245, 0.199);
+}
+
+.card-user__repositories fieldset legend {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.card-user__repositories li {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.card-user__repositories li a {
     font-size: 0.7rem;
     color: white;
     padding: 0.3rem;
@@ -107,4 +126,41 @@ body {
 .error-section.show-error {
     bottom: 3rem;
     opacity: 1;
+}
+
+@media (max-width: 50rem) {
+    .card-user-section {
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form-section {
+        width: 95%;
+    }
+
+    .card-user__image>figure {
+        width: 7rem;
+    }
+
+    .card-user__image .card-user__image--avatar {
+        width: 6rem;
+    }
+
+    .card-user__info--username {
+        letter-spacing: 1px;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .card-user__info--bio {
+        text-align: center;
+    }
+
+    .card-user__info--details span {
+        text-align: center;
+    }
+
 }

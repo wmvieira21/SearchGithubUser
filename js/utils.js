@@ -48,12 +48,13 @@ function drawCard(user) {
             <span class="card-user__info--repo">${user.public_repos} Repositories</span>
         </div>
 
-        <div class="card-user__info--repo">
-            <ul>
-                <li><a href="" target="blank">Repositorie 1</a></li>
-                <li><a href="">Repositorie 1</a></li>
-                <li><a href="">Repositorie 1</a></li>
-            </ul>
+        <div class="card-user__repositories">
+            <FIeldset>
+                <Legend>Starred Repositories</Legend>
+                <ul>
+               ${drawRepositories(user.strarredRepo)}
+                </ul>
+            </FIeldset>
         </div>
     </div>
     </section>`;
@@ -61,12 +62,14 @@ function drawCard(user) {
     document.querySelector('.form-section').insertAdjacentHTML('afterend', bodyCard);
 }
 
-function clearCards() {
-    const card = document.querySelector('.card-user-section');
+function drawRepositories(strarredRepo) {
+    let liItensRepo = ``;
+    strarredRepo.forEach(repositorie => {
+        liItensRepo += `<li><a href="${repositorie.html_url}" target="blank">${repositorie.name}</a></li>`;
+    });
 
-    if (card) {
-        document.querySelector('main').removeChild(card);
-    }
+    console.log(liItensRepo);
+    return liItensRepo;
 }
 
 function showError(error) {
@@ -75,4 +78,12 @@ function showError(error) {
     setTimeout(() => {
         errorMessageEl.classList.remove('show-error');
     }, 3000);
+}
+
+function clearCards() {
+    const card = document.querySelector('.card-user-section');
+
+    if (card) {
+        document.querySelector('main').removeChild(card);
+    }
 }
