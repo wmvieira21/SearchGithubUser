@@ -1,7 +1,7 @@
 # Search GitHub account
 
 ## About the project 
-Practice project consuming the Github api.
+Practice project consuming the Github API.
 
 ## Technologies 
 - JavaScript
